@@ -5,6 +5,8 @@ on:
     branches:
       - master
 
+  workflow_dispatch:
+
 jobs:
   test:
     name: Run Lint and Test
@@ -44,6 +46,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build component
+        run: npm run build
+
       - name: Build docs
         run: npm run docs:build
 
@@ -52,6 +57,7 @@ jobs:
         with:
           name: docs
           path: ./packages/docs/.vitepress/dist
+
 
   deploy:
     name: Deploy to GitHub Pages

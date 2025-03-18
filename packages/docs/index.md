@@ -3,16 +3,13 @@
 layout: home
 
 hero:
-  name: "Viz-ui"
-  text: "Viz-ui组件库"
+  name: "viz-ui-y"
+  text: "viz-ui-y组件库"
   tagline: My great project tagline
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
-    - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: 开始使用
+      link: /get-started
 
 features:
   - title: Feature A

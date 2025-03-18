@@ -1,0 +1,16 @@
+.viz-icon {
+    --viz-icon-color: inherit;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    fill: currentColor;
+    color: var(--viz-icon-color);
+    font-size: inherit;
+  }
+  
+  @each $val in primary, info, success, warning, danger {
+    .viz-icon--$(val) {
+      --viz-icon-color: var(--viz-color-$(val));
+    }
+  }

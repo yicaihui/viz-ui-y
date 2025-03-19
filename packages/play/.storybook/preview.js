@@ -1,4 +1,4 @@
-import 'viz-ui-y/dist/index.css'
+import 'viz-ui-y/dist/theme/index.css'
 
 /** @type { import('@storybook/vue3').Preview } */
 const preview = {

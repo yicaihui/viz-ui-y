@@ -63,7 +63,7 @@ defineExpose<ButtonInstance>({
         />
       </slot>
     </template>
-    <er-icon
+    <viz-icon
       :icon="icon"
       size="1x"
       :style="iconStyle"

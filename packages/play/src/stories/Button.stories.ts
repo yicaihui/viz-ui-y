@@ -2,6 +2,7 @@
 import type { Meta, StoryObj, ArgTypes } from "@storybook/vue3";
 import { fn, within, userEvent, expect } from "@storybook/test";
 import { VizButton } from "viz-ui-y";
+import 'viz-ui-y/dist/theme/Button.css'
 
 type Story = StoryObj<typeof VizButton> & { argTypes?: ArgTypes };
 

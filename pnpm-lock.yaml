@@ -55,7 +55,7 @@ importers:
         version: 3.5.13(typescript@5.8.2)
     devDependencies:
       '@lerna-lite/cli':
-        specifier: ^3.8.0
+        specifier: ^3.12.3
         version: 3.12.3(@lerna-lite/publish@3.12.3(@types/node@20.17.24)(typescript@5.8.2))(@lerna-lite/version@3.12.3(@lerna-lite/publish@3.12.3(@types/node@20.17.24)(typescript@5.8.2))(@types/node@20.17.24)(typescript@5.8.2))(@types/node@20.17.24)(typescript@5.8.2)
       '@lerna-lite/publish':
         specifier: ^3.8.0

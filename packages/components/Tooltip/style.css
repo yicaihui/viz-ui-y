@@ -1,0 +1,81 @@
+.viz-tooltip {
+  --viz-popover-bg-color: var(--viz-bg-color-overlay);
+  --viz-popover-font-size: var(--viz-font-size-base);
+  --viz-popover-border-color: var(--viz-border-color-lighter);
+  --viz-popover-padding: 12px;
+  --viz-popover-border-radius: 4px;
+  display: inline-block;
+}
+.viz-tooltip {
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity var(--viz-transition-duration);
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+  }
+
+  .viz-tooltip__popper {
+    background: var(--viz-popover-bg-color);
+    border-radius: var(--viz-popover-border-radius);
+    border: 1px solid var(--viz-popover-border-color);
+    padding: var(--viz-popover-padding);
+    color: var(--viz-text-color-regular);
+    line-height: 1.4;
+    text-align: justify;
+    font-size: var(--viz-popover-font-size);
+    box-shadow: var(--viz-box-shadow-light);
+    word-break: break-all;
+    box-sizing: border-box;
+    z-index: 1000;
+    #arrow,
+    #arrow::before {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      box-sizing: border-box;
+      background: var(--viz-popover-bg-color);
+    }
+    #arrow {
+      visibility: hidden;
+    }
+    #arrow::before {
+      visibility: visible;
+      content: '';
+      transform: rotate(45deg);
+    }
+    &[data-popper-placement^='top'] > #arrow {
+      bottom: -5px;
+    }
+
+    &[data-popper-placement^='bottom'] > #arrow {
+      top: -5px;
+    }
+
+    &[data-popper-placement^='left'] > #arrow {
+      right: -5px;
+    }
+
+    &[data-popper-placement^='right'] > #arrow {
+      left: -5px;
+    }
+    &[data-popper-placement^='top'] > #arrow::before {
+      border-right: 1px solid var(--viz-popover-border-color);
+      border-bottom: 1px solid var(--viz-popover-border-color);
+    }
+    &[data-popper-placement^='bottom'] > #arrow::before {
+      border-left: 1px solid var(--viz-popover-border-color);
+      border-top: 1px solid var(--viz-popover-border-color);
+    }
+    &[data-popper-placement^='left'] > #arrow::before {
+      border-right: 1px solid var(--viz-popover-border-color);
+      border-top: 1px solid var(--viz-popover-border-color);
+    }
+    &[data-popper-placement^='right'] > #arrow::before {
+      border-left: 1px solid var(--viz-popover-border-color);
+      border-bottom: 1px solid var(--viz-popover-border-color);
+    }
+  }
+}

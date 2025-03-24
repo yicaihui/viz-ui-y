@@ -1,87 +1,88 @@
-
-import type { Meta, StoryObj, ArgTypes } from "@storybook/vue3";
-import { fn, within, userEvent, expect } from "@storybook/test";
-import { VizButton } from "viz-ui-y";
+import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3'
+import { fn, within, userEvent, expect } from '@storybook/test'
+import { VizButton } from 'viz-ui-y'
 import 'viz-ui-y/dist/theme/Button.css'
 
-type Story = StoryObj<typeof VizButton> & { argTypes?: ArgTypes };
+type Story = StoryObj<typeof VizButton> & { argTypes?: ArgTypes }
 
 const meta: Meta<typeof VizButton> = {
-  title: "Example/Button",
+  title: 'Example/Button',
   component: VizButton,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     type: {
-      control: { type: "select" },
-      options: ["primary", "success", "warning", "danger", "info", ""],
+      control: { type: 'select' },
+      options: ['primary', 'success', 'warning', 'danger', 'info', '']
     },
     size: {
-      control: { type: "select" },
-      options: ["large", "default", "small", ""],
+      control: { type: 'select' },
+      options: ['large', 'default', 'small', '']
     },
     disabled: {
-      control: "boolean",
+      control: 'boolean'
     },
     loading: {
-      control: "boolean",
+      control: 'boolean'
     },
     useThrottle: {
-      control: "boolean",
+      control: 'boolean'
     },
     throttleDuration: {
-      control: "number",
+      control: 'number'
     },
     autofocus: {
-      control: "boolean",
+      control: 'boolean'
     },
     tag: {
-      control: { type: "select" },
-      options: ["button", "a", "div"],
+      control: { type: 'select' },
+      options: ['button', 'a', 'div']
     },
     nativeType: {
-      control: { type: "select" },
-      options: ["button", "submit", "reset", ""],
+      control: { type: 'select' },
+      options: ['button', 'submit', 'reset', '']
     },
     icon: {
-      control: { type: "text" },
+      control: { type: 'text' }
     },
     loadingIcon: {
-      control: { type: "text" },
-    },
+      control: { type: 'text' }
+    }
   },
-  args: { onClick: fn() },
-};
+  args: { onClick: fn() }
+}
 const container = (val: string) => `
 <div style="margin:5px">
   ${val}
 </div>
-`;
+`
 export const Default: Story & { args: { content: string } } = {
   argTypes: {
     content: {
-      control: { type: "text" },
-    },
+      control: { type: 'text' }
+    }
   },
   args: {
-    type: "primary",
-    content: "Button",
+    type: 'primary',
+    content: 'Button',
+    loadingIcon: '',
+    icon: ''
   },
-  render: (args) => ({
+  render: args => ({
     components: { VizButton },
     setup() {
-      return { args };
+      return { args }
     },
     template: container(
       `<viz-button v-bind="args">{{args.content}}</viz-button>`
-    ),
+    )
   }),
   play: async ({ canvasElement, args, step }) => {
-    const canvas = within(canvasElement);
-    await step("click button", async () => {
-      await userEvent.tripleClick(canvas.getByRole("button"));
-    });
+    const canvas = within(canvasElement)
+    await step('click button', async () => {
+      await userEvent.tripleClick(canvas.getByRole('button'))
+    })
 
-    expect(args.onClick).toHaveBeenCalled();
-  },
-};
-export default meta;
+    expect(args.onClick).toHaveBeenCalled()
+  }
+}
+export default meta

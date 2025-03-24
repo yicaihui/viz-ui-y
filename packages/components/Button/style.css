@@ -1,199 +1,199 @@
 .viz-button-group {
-    --viz-button-group-border-color: var(--viz-border-color-lighter);
+  --viz-button-group-border-color: var(--viz-border-color-lighter);
+}
+.viz-button {
+  --viz-button-font-weight: var(--viz-font-weight-primary);
+  --viz-button-border-color: var(--viz-border-color);
+  --viz-button-bg-color: var(--viz-color-primary);
+  --viz-button-text-color: var(--viz-text-color-regular);
+  --viz-button-disabled-text-color: var(--viz-disabled-text-color);
+  --viz-button-disabled-bg-color: var(--viz-fill-color-blank);
+  --viz-button-disabled-border-color: var(--viz-border-color-light);
+  --viz-button-hover-text-color: var(--viz-color-primary);
+  --viz-button-hover-bg-color: var(--viz-color-primary-light-9);
+  --viz-button-hover-border-color: var(--viz-color-primary-light-7);
+  --viz-button-active-text-color: var(--viz-button-hover-text-color);
+  --viz-button-active-border-color: var(--viz-color-primary);
+  --viz-button-active-bg-color: var(--viz-button-hover-bg-color);
+  --viz-button-outline-color: var(--viz-color-primary-light-5);
+  --viz-button-active-color: var(--viz-text-color-primary);
+}
+
+.viz-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  height: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--viz-button-text-color);
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.1s;
+  font-weight: var(--viz-button-font-weight);
+  user-select: none;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  background-color: var(--viz-button-bg-color);
+  border: var(--viz-border);
+  border-color: var(--viz-button-border-color);
+  padding: 8px 15px;
+  font-size: var(--viz-font-size-base);
+  border-radius: var(--viz-border-radius-base);
+  & + & {
+    margin-left: 12px;
   }
-  .viz-button {
-    --viz-button-font-weight: var(--viz-font-weight-primary);
-    --viz-button-border-color: var(--viz-border-color);
-    --viz-button-bg-color: var(--viz-fill-color-blank);
-    --viz-button-text-color: var(--viz-text-color-regular);
-    --viz-button-disabled-text-color: var(--viz-disabled-text-color);
-    --viz-button-disabled-bg-color: var(--viz-fill-color-blank);
-    --viz-button-disabled-border-color: var(--viz-border-color-light);
-    --viz-button-hover-text-color: var(--viz-color-primary);
-    --viz-button-hover-bg-color: var(--viz-color-primary-light-9);
-    --viz-button-hover-border-color: var(--viz-color-primary-light-7);
-    --viz-button-active-text-color: var(--viz-button-hover-text-color);
-    --viz-button-active-border-color: var(--viz-color-primary);
-    --viz-button-active-bg-color: var(--viz-button-hover-bg-color);
-    --viz-button-outline-color: var(--viz-color-primary-light-5);
-    --viz-button-active-color: var(--viz-text-color-primary);
-  }
-  
-  .viz-button {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    line-height: 1;
-    height: 32px;
-    white-space: nowrap;
-    cursor: pointer;
-    color: var(--viz-button-text-color);
-    text-align: center;
-    box-sizing: border-box;
+  &:hover,
+  &:focus {
+    color: var(--viz-button-hover-text-color);
+    border-color: var(--viz-button-hover-border-color);
+    background-color: var(--viz-button-hover-bg-color);
     outline: none;
-    transition: 0.1s;
-    font-weight: var(--viz-button-font-weight);
-    user-select: none;
-    vertical-align: middle;
-    -webkit-appearance: none;
-    background-color: var(--viz-button-bg-color);
-    border: var(--viz-border);
-    border-color: var(--viz-button-border-color);
-    padding: 8px 15px;
-    font-size: var(--viz-font-size-base);
-    border-radius: var(--viz-border-radius-base);
-    & + & {
-      margin-left: 12px;
-    }
-    &:hover,
-    &:focus {
-      color: var(--viz-button-hover-text-color);
-      border-color: var(--viz-button-hover-border-color);
-      background-color: var(--viz-button-hover-bg-color);
-      outline: none;
-    }
-    &:active {
-      color: var(--viz-button-active-text-color);
-      border-color: var(--viz-button-active-border-color);
-      background-color: var(--viz-button-active-bg-color);
-      outline: none;
-    }
-    /*plain*/
-    &.is-plain {
-      --viz-button-hover-text-color: var(--viz-color-primary);
-      --viz-button-hover-bg-color: var(--viz-fill-color-blank);
-      --viz-button-hover-border-color: var(--viz-color-primary);
-    }
-    /*round*/
-    &.is-round {
-      border-radius: var(--viz-border-radius-round);
-    }
-    /*circle*/
-    &.is-circle {
-      border-radius: 50%;
-      padding: 8px;
-    }
-    /*disabled*/
-    &.is-loading,
-    &.is-disabled,
-    &.is-disabled:hover,
-    &.is-disabled:focus,
-    &[disabled],
-    &[disabled]:hover,
-    &[disabled]:focus {
-      color: var(--viz-button-disabled-text-color);
-      cursor: not-allowed;
-      background-image: none;
-      background-color: var(--viz-button-disabled-bg-color);
-      border-color: var(--viz-button-disabled-border-color);
-    }
-    [class*='er-icon'] {
-      width: 1em;
-      height: 1em;
-    }
   }
-  @each $val in primary, success, warning, info, danger {
-    .viz-button--$(val) {
-      --viz-button-text-color: var(--viz-color-white);
-      --viz-button-bg-color: var(--viz-color-$(val));
-      --viz-button-border-color: var(--viz-color-$(val));
-      --viz-button-outline-color: var(--viz-color-$(val)-light-5);
-      --viz-button-active-color: var(--viz-color-$(val)-dark-2);
-      --viz-button-hover-text-color: var(--viz-color-white);
-      --viz-button-hover-bg-color: var(--viz-color-$(val)-light-3);
-      --viz-button-hover-border-color: var(--viz-color-$(val)-light-3);
-      --viz-button-active-bg-color: var(--viz-color-$(val)-dark-2);
-      --viz-button-active-border-color: var(--viz-color-$(val)-dark-2);
-      --viz-button-disabled-text-color: var(--viz-color-white);
-      --viz-button-disabled-bg-color: var(--viz-color-$(val)-light-5);
-      --viz-button-disabled-border-color: var(--viz-color-$(val)-light-5);
-    }
-    .viz-button--$(val).is-plain {
-      --viz-button-text-color: var(--viz-color-$(val));
-      --viz-button-bg-color: var(--viz-color-$(val)-light-9);
-      --viz-button-border-color: var(--viz-color-$(val)-light-5);
-      --viz-button-hover-text-color: var(--viz-color-white);
-      --viz-button-hover-bg-color: var(--viz-color-$(val));
-      --viz-button-hover-border-color: var(--viz-color-$(val));
-      --viz-button-active-text-color: var(--viz-color-white);
-  
-      --viz-button-disabled-text-color: var(--viz-color-$(val)-light-5);
-      --viz-button-disabled-bg-color: var(--viz-color-$(val)-light-9);
-      --viz-button-disabled-border-color: var(--viz-color-$(val)-light-8);
-    }
+  &:active {
+    color: var(--viz-button-active-text-color);
+    border-color: var(--viz-button-active-border-color);
+    background-color: var(--viz-button-active-bg-color);
+    outline: none;
   }
-  .viz-button--large {
-    --viz-button-size: 40px;
-    height: var(--viz-button-size);
-    padding: 12px 19px;
-    font-size: var(--viz-font-size-base);
-    border-radius: var(--viz-border-radius-base);
-    /*circle*/
-    &.is-circle {
-      border-radius: 50%;
-      padding: 12px;
-    }
+  /*plain*/
+  &.is-plain {
+    --viz-button-hover-text-color: var(--viz-color-primary);
+    --viz-button-hover-bg-color: var(--viz-fill-color-blank);
+    --viz-button-hover-border-color: var(--viz-color-primary);
   }
-  .viz-button--small {
-    --viz-button-size: 24px;
-    height: var(--viz-button-size);
-    padding: 5px 11px;
-    font-size: 12px;
-    border-radius: calc(var(--viz-border-radius-base) - 1px);
-    /*circle*/
-    &.is-circle {
-      border-radius: 50%;
-      padding: 5px;
-    }
-    [class*='er-icon'] {
-      width: 12px;
-      height: 12px;
-    }
+  /*round*/
+  &.is-round {
+    border-radius: var(--viz-border-radius-round);
   }
-  
-  .viz-button-group {
-    display: inline-block;
-    vertical-align: middle;
-  
-    &::after {
-      clear: both;
+  /*circle*/
+  &.is-circle {
+    border-radius: 50%;
+    padding: 8px;
+  }
+  /*disabled*/
+  &.is-loading,
+  &.is-disabled,
+  &.is-disabled:hover,
+  &.is-disabled:focus,
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus {
+    color: var(--viz-button-disabled-text-color);
+    cursor: not-allowed;
+    background-image: none;
+    background-color: var(--viz-button-disabled-bg-color);
+    border-color: var(--viz-button-disabled-border-color);
+  }
+  [class*='er-icon'] {
+    width: 1em;
+    height: 1em;
+  }
+}
+@each $val in primary, success, warning, info, danger {
+  .viz-button--$(val) {
+    --viz-button-text-color: var(--viz-color-white);
+    --viz-button-bg-color: var(--viz-color-$(val));
+    --viz-button-border-color: var(--viz-color-$(val));
+    --viz-button-outline-color: var(--viz-color-$(val)-light-5);
+    --viz-button-active-color: var(--viz-color-$(val)-dark-2);
+    --viz-button-hover-text-color: var(--viz-color-white);
+    --viz-button-hover-bg-color: var(--viz-color-$(val)-light-3);
+    --viz-button-hover-border-color: var(--viz-color-$(val)-light-3);
+    --viz-button-active-bg-color: var(--viz-color-$(val)-dark-2);
+    --viz-button-active-border-color: var(--viz-color-$(val)-dark-2);
+    --viz-button-disabled-text-color: var(--viz-color-white);
+    --viz-button-disabled-bg-color: var(--viz-color-$(val)-light-5);
+    --viz-button-disabled-border-color: var(--viz-color-$(val)-light-5);
+  }
+  .viz-button--$(val).is-plain {
+    --viz-button-text-color: var(--viz-color-$(val));
+    --viz-button-bg-color: var(--viz-color-$(val)-light-9);
+    --viz-button-border-color: var(--viz-color-$(val)-light-5);
+    --viz-button-hover-text-color: var(--viz-color-white);
+    --viz-button-hover-bg-color: var(--viz-color-$(val));
+    --viz-button-hover-border-color: var(--viz-color-$(val));
+    --viz-button-active-text-color: var(--viz-color-white);
+
+    --viz-button-disabled-text-color: var(--viz-color-$(val)-light-5);
+    --viz-button-disabled-bg-color: var(--viz-color-$(val)-light-9);
+    --viz-button-disabled-border-color: var(--viz-color-$(val)-light-8);
+  }
+}
+.viz-button--large {
+  --viz-button-size: 40px;
+  height: var(--viz-button-size);
+  padding: 12px 19px;
+  font-size: var(--viz-font-size-base);
+  border-radius: var(--viz-border-radius-base);
+  /*circle*/
+  &.is-circle {
+    border-radius: 50%;
+    padding: 12px;
+  }
+}
+.viz-button--small {
+  --viz-button-size: 24px;
+  height: var(--viz-button-size);
+  padding: 5px 11px;
+  font-size: 12px;
+  border-radius: calc(var(--viz-border-radius-base) - 1px);
+  /*circle*/
+  &.is-circle {
+    border-radius: 50%;
+    padding: 5px;
+  }
+  [class*='er-icon'] {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.viz-button-group {
+  display: inline-block;
+  vertical-align: middle;
+
+  &::after {
+    clear: both;
+  }
+  & > :deep(.viz-button) {
+    float: left;
+    position: relative;
+    margin-left: 0;
+    &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right-color: var(--viz-button-group-border-color);
     }
-    & > :deep(.viz-button){
-      float: left;
-      position: relative;
-      margin-left: 0;
-      &:first-child{
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        border-right-color: var(--viz-button-group-border-color);
+    &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-left-color: var(--viz-button-group-border-color);
+    }
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+
+      border-left-color: var(--viz-button-group-border-color);
+      border-right-color: var(--viz-button-group-border-color);
+    }
+    &:not(:last-child) {
+      margin-right: -1px;
+    }
+    &:first-child:last-child {
+      border-top-right-radius: var(--viz-border-radius-base);
+      border-bottom-right-radius: var(--viz-border-radius-base);
+      border-top-left-radius: var(--viz-border-radius-base);
+      border-bottom-left-radius: var(--viz-border-radius-base);
+
+      &.is-round {
+        border-radius: var(--viz-border-radius-round);
       }
-      &:last-child{
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0; 
-        border-left-color: var(--viz-button-group-border-color);
-      }
-      &:not(:first-child):not(:last-child) {
-        border-radius: 0;
-  
-        border-left-color: var(--viz-button-group-border-color);
-        border-right-color: var(--viz-button-group-border-color);
-      }
-      &:not(:last-child) {
-        margin-right: -1px;
-      }
-      &:first-child:last-child {
-        border-top-right-radius: var(--viz-border-radius-base);
-        border-bottom-right-radius: var(--viz-border-radius-base);
-        border-top-left-radius: var(--viz-border-radius-base);
-        border-bottom-left-radius: var(--viz-border-radius-base);
-  
-        &.is-round {
-          border-radius: var(--viz-border-radius-round);
-        }
-  
-        &.is-circle {
-          border-radius: 50%;
-        }
+
+      &.is-circle {
+        border-radius: 50%;
       }
     }
   }
+}

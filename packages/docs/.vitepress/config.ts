@@ -1,57 +1,62 @@
 import { defineConfig } from 'vitepress'
 import {
   containerPreview,
-  componentPreview,
-} from "@vitepress-demo-preview/plugin";
+  componentPreview
+} from '@vitepress-demo-preview/plugin'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "viz-ui-y",
-  description: "viz-ui-y组件库",
-  base: "/viz-ui-y/",
+  title: 'viz-ui-y',
+  description: 'viz-ui-y组件库',
+  base: '/viz-ui-y/',
   appearance: false,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: "开始使用", link: "/get-started" },
-      { text: "组件", link: "/components/button" },
+      { text: '开始使用', link: '/get-started' },
+      { text: '组件', link: '/components/button' }
     ],
     search: {
-      provider: "local",
+      provider: 'local'
     },
     sidebar: [
       {
-        text: "指南",
+        text: '指南',
         collapsed: false,
-        items: [{ text: "快速开始", link: "/get-started" }],
+        items: [{ text: '快速开始', link: '/get-started' }]
       },
       {
-        text: "基础组件",
+        text: '样式',
+        collapsed: true,
+        items: [{ text: '颜色', link: 'styles/colors' }]
+      },
+      {
+        text: '基础组件',
         collapsed: false,
         items: [
-          { text: "Button 按钮", link: "components/button" },
-          { text: "Collapse 折叠面板", link: "components/collapse" },
-          { text: "Dropdown 下拉菜单", link: "components/dropdown" },
-        ],
+          { text: 'Button 按钮', link: 'components/button' },
+          { text: 'Collapse 折叠面板', link: 'components/collapse' },
+          { text: 'Dropdown 下拉菜单', link: 'components/dropdown' }
+        ]
       },
       {
-        text: "反馈组件",
+        text: '反馈组件',
         collapsed: false,
         items: [
-          { text: "Alert 提示", link: "components/alert" },
-          { text: "Loading 加载", link: "components/loading" },
-          { text: "Message 消息提示", link: "components/message" },
-          { text: "MessageBox 消息弹出框", link: "components/messagebox" },
-          { text: "Notification 通知", link: "components/notification" },
-          { text: "Popconfirm 气泡确认框", link: "components/popconfirm" },
-          { text: "Tooltip 文字提示", link: "components/tooltip" },
-        ],
+          { text: 'Alert 提示', link: 'components/alert' },
+          { text: 'Loading 加载', link: 'components/loading' },
+          { text: 'Message 消息提示', link: 'components/message' },
+          { text: 'MessageBox 消息弹出框', link: 'components/messagebox' },
+          { text: 'Notification 通知', link: 'components/notification' },
+          { text: 'Popconfirm 气泡确认框', link: 'components/popconfirm' },
+          { text: 'Tooltip 文字提示', link: 'components/tooltip' }
+        ]
       },
       {
-        text: "表单组件",
+        text: '表单组件',
         collapsed: false,
-        items: [{ text: "Form 表单", link: "components/form" }],
-      },
+        items: [{ text: 'Form 表单', link: 'components/form' }]
+      }
     ],
 
     socialLinks: [
@@ -60,8 +65,8 @@ export default defineConfig({
   },
   markdown: {
     config(md) {
-      md.use(containerPreview);
-      md.use(componentPreview);
-    },
-  },
+      md.use(containerPreview)
+      md.use(componentPreview)
+    }
+  }
 })

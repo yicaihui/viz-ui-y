@@ -1,11 +1,12 @@
 {
   "name": "@viz-ui-y/components",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "private": true,
   "scripts": {
-    "test": "vitest --coverage"
+    "test": "cross-env NODE_ENV=test pnpm --filter @viz-ui-y/hooks build && vitest --run --coverage",
+    "test:watch": "cross-env NODE_ENV=test pnpm --filter @viz-ui-y/hooks build && vitest --coverage"
   },
   "keywords": [],
   "author": "",

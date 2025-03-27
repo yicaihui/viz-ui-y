@@ -1,7 +1,7 @@
 import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3'
-import { fn, within, userEvent, expect } from '@storybook/test'
+import { expect, fn, userEvent, within } from '@storybook/test'
 import { VizButton } from 'viz-ui-y'
-import 'viz-ui-y/dist/theme/Button.css'
+// import 'viz-ui-y/dist/theme/Button.css'
 
 type Story = StoryObj<typeof VizButton> & { argTypes?: ArgTypes }
 
@@ -50,6 +50,7 @@ const meta: Meta<typeof VizButton> = {
   },
   args: { onClick: fn() }
 }
+// 定义容器
 const container = (val: string) => `
 <div style="margin:5px">
   ${val}
@@ -63,9 +64,7 @@ export const Default: Story & { args: { content: string } } = {
   },
   args: {
     type: 'primary',
-    content: 'Button',
-    loadingIcon: '',
-    icon: ''
+    content: 'Button'
   },
   render: args => ({
     components: { VizButton },
@@ -80,6 +79,28 @@ export const Default: Story & { args: { content: string } } = {
     const canvas = within(canvasElement)
     await step('click button', async () => {
       await userEvent.tripleClick(canvas.getByRole('button'))
+    })
+
+    expect(args.onClick).toHaveBeenCalled()
+  }
+}
+export const Circle: Story = {
+  args: {
+    icon: 'search'
+  },
+  render: args => ({
+    components: { VizButton },
+    setup() {
+      return { args }
+    },
+    template: container(`
+      <viz-button circle v-bind="args"/>
+    `)
+  }),
+  play: async ({ canvasElement, args, step }) => {
+    const canvas = within(canvasElement)
+    await step('click button', async () => {
+      await userEvent.click(canvas.getByRole('button'))
     })
 
     expect(args.onClick).toHaveBeenCalled()

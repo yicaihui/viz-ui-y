@@ -1,15 +1,17 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, inject } from 'vue'
 import type { ButtonProps, ButtonEmits, ButtonInstance } from './types'
-import { throttle, pick } from 'lodash-es'
+import { throttle } from 'lodash-es'
 import VizIcon from '../Icon/Icon.vue'
-import { useBem } from '@viz-ui-y/utils'
+import { BUTTON_GROUP_CTX_KEY } from './constants'
 
 defineOptions({
   name: 'VizButton'
 })
+
 const props = withDefaults(defineProps<ButtonProps>(), {
   tag: 'button',
+  type: 'primary',
   nativeType: 'button',
   useThrottle: true,
   throttleDuration: 500
@@ -21,21 +23,29 @@ const _ref = ref<HTMLButtonElement>()
 const handleBtnClick = (e: MouseEvent) => {
   emits('click', e)
 }
-const handlBtneCLickThrottle = throttle(handleBtnClick, props.throttleDuration)
+const handlBtneCLickThrottle = throttle(
+  handleBtnClick,
+  props.throttleDuration,
+  { trailing: false }
+)
 //iconStyle
-const iconStyle = computed(() => ({
-  marginRight: slots.default ? '6px' : '0px'
-}))
+const iconStyle = computed(() => {
+  return {
+    marginRight:
+      slots.default && slots.default()[0].children != '' ? '6px' : '0px'
+  }
+})
+// 依赖注入
+const buttonGroupCtx = inject(BUTTON_GROUP_CTX_KEY, void 0)
+const size = computed(() => buttonGroupCtx?.size ?? props.size ?? '')
+const type = computed(() => buttonGroupCtx?.type ?? props.type ?? '')
+const disabled = computed(
+  () => props.disabled || buttonGroupCtx?.disabled || false
+)
+
 defineExpose<ButtonInstance>({
   ref: _ref
 })
-//style
-const computedClass = useBem('viz-button', () => ({
-  ...pick(props, 'disabled', 'loading', 'round', 'plain'),
-  small: props.size === 'small',
-  normal: !props.size || props.size === 'default',
-  large: props.size === 'large'
-}))
 </script>
 
 <template>
@@ -46,7 +56,15 @@ const computedClass = useBem('viz-button', () => ({
     class="viz-button"
     :type="tag === 'button' ? nativeType : void 0"
     :disabled="disabled || loading ? true : void 0"
-    :class="computedClass"
+    :class="{
+      'is-disabled': disabled,
+      'is-loading': loading,
+      'is-plain': plain,
+      'is-round': round,
+      'is-circle': circle,
+      [`viz-button--${type}`]: type,
+      [`viz-button--${size}`]: size
+    }"
     @click="
       (e: MouseEvent) =>
         useThrottle ? handlBtneCLickThrottle(e) : handleBtnClick(e)
@@ -56,7 +74,7 @@ const computedClass = useBem('viz-button', () => ({
       <slot name="loading">
         <viz-icon
           class="loading-icon"
-          :icon="loadingIcon ?? 'spinner'"
+          :icon="loadingIcon ? loadingIcon : 'spinner'"
           :style="iconStyle"
           size="1x"
           spin
@@ -73,6 +91,6 @@ const computedClass = useBem('viz-button', () => ({
   </component>
 </template>
 
-<style scoped>
+<style>
 @import './style.css';
 </style>

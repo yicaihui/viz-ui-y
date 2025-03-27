@@ -21,14 +21,16 @@
     }
   },
   "sideEffects": [
-    "./dist/index.css"
+    "./dist/index.css",
+    "./dist/theme/*.css"
   ],
   "scripts": {
-    "build": "run-s build-only",
+    "build": "run-s clean build-only",
     "build-only": "run-p build-es build-umd",
     "build-umd": "vite build --config build/vite.umd.config.ts",
     "build-es": "vite build --config build/vite.es.config.ts",
-    "release": "release-it"
+    "release": "release-it",
+    "clean": "rimraf dist"
   },
   "keywords": [],
   "author": "",

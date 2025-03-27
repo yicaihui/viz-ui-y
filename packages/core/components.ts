@@ -1,5 +1,6 @@
 import {
   VizButton,
+  VizButtonGroup,
   VizIcon,
   VizCollapse,
   VizCollapseItem,
@@ -9,6 +10,7 @@ import type { Plugin } from 'vue'
 
 export default [
   VizButton,
+  VizButtonGroup,
   VizIcon,
   VizCollapse,
   VizCollapseItem,

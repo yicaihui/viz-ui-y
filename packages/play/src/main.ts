@@ -5,5 +5,4 @@ import 'viz-ui-y/dist/index.css'
 
 const app = createApp(App)
 app.use(VizElement)
-
 app.mount('#app')

@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import { type IconProps } from "./types";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { omit } from "lodash-es";
-import { computed } from "vue";
+import { type IconProps } from './types'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { omit } from 'lodash-es'
+import { computed } from 'vue'
 
 defineOptions({
-  name: "VizIcon",
-  inheritAttrs: false,
-});
+  name: 'VizIcon',
+  inheritAttrs: false
+})
 
-const props = defineProps<IconProps>();
-
-const filterProps = computed(() => omit(props, ["type", "color"]));
-const customStyles = computed(() => ({ color: props.color ?? void 0 }));
+const props = defineProps<IconProps>()
+// type和color是我们自己定义的
+const filterProps = computed(() => omit(props, ['type', 'color']))
+const customStyles = computed(() => ({ color: props.color ?? void 0 }))
 </script>
 
 <template>
   <i
-    class="er-icon"
+    class="viz-icon"
     :class="{ [`viz-icon--${type}`]: type }"
     :style="customStyles"
     v-bind="$attrs"
@@ -27,5 +27,5 @@ const customStyles = computed(() => ({ color: props.color ?? void 0 }));
 </template>
 
 <style scoped>
-@import "./style.css";
+@import './style.css';
 </style>

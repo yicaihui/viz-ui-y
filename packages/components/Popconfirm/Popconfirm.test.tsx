@@ -5,7 +5,7 @@ import { each, get } from 'lodash-es'
 import type { PopconfirmProps } from './types.ts'
 import { VizPopconfirm } from '.'
 
-import Popconfirm from './Popconfirm'
+import Popconfirm from './Popconfirm.vue'
 
 const onConfirm = vi.fn()
 const onCancel = vi.fn()

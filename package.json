@@ -8,7 +8,7 @@
     "story": "pnpm --filter @viz-ui-y/play storybook",
     "docs:dev": "pnpm --filter @viz-ui-y/docs dev",
     "docs:build": "pnpm --filter @viz-ui-y/docs build",
-    "test": "run-p test-utils test-comp ",
+    "test": "run-s test-utils test-comp ",
     "test-comp": "cross-env NODE_ENV=test pnpm --filter @viz-ui-y/components test",
     "test-utils": "cross-env NODE_ENV=test pnpm --filter @viz-ui-y/utils test",
     "build": "run-s build-hooks build-components",

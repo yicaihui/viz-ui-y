@@ -4,6 +4,6 @@
   "main": "index.ts",
   "private": true,
   "scripts": {
-    "test": "vitest --coverage"
+    "test": "vitest --run --coverage"
   }
 }

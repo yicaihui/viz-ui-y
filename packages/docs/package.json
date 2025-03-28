@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@vitepress-demo-preview/component": "^2.3.2",
+    "vitepress-preview-component": "workspace:*",
     "@vitepress-demo-preview/plugin": "^1.2.3",
     "vitepress": "1.0.0-rc.44"
   }

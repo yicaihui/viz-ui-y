@@ -44,7 +44,10 @@ const disabled = computed(
 )
 
 defineExpose<ButtonInstance>({
-  ref: _ref
+  ref: _ref,
+  disabled,
+  size,
+  type
 })
 </script>
 

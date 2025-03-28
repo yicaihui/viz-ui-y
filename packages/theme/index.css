@@ -36,7 +36,7 @@
   @each $val, $color in var(--colors) {
     --viz-color-$(val): $(color);
     @for $i from 3 to 9 {
-      --viz-color-$(val)-light-$(i): mix(#fff, $(color), $(i / 10));
+      --viz-color-$(val)-light-$(i): mix(#fff, $(color), 0.$(i));
     }
     --viz-color-$(val)-dark-2: mix(#000, $(color), 0.2);
   }

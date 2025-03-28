@@ -4,7 +4,8 @@ import {
   VizIcon,
   VizCollapse,
   VizCollapseItem,
-  VizTooltip
+  VizTooltip,
+  VizAlert
 } from '@viz-ui-y/components'
 import type { Plugin } from 'vue'
 
@@ -14,5 +15,6 @@ export default [
   VizIcon,
   VizCollapse,
   VizCollapseItem,
-  VizTooltip
+  VizTooltip,
+  VizAlert
 ] as Plugin[]

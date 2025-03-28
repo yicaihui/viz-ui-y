@@ -60,7 +60,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/atBJFUyiyi/viz-ui' }
+      { icon: 'github', link: 'https://github.com/yicaihui/viz-ui-y' }
     ]
   },
   markdown: {

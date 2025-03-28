@@ -1,4 +1,4 @@
-import type { Component, Ref } from 'vue'
+import type { Component, ComputedRef, Ref } from 'vue'
 
 export type ButtonType = 'primary' | 'success' | 'danger' | 'info' | 'warning'
 export type ButtonSize = 'small' | 'default' | 'large'
@@ -26,6 +26,9 @@ export interface ButtonEmits {
 
 export interface ButtonInstance {
   ref: Ref<HTMLButtonElement | void>
+  disabled: ComputedRef<boolean>
+  size: ComputedRef<string>
+  type: ComputedRef<string>
 }
 
 //button-group

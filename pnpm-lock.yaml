@@ -260,6 +260,9 @@ importers:
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
+      vue:
+        specifier: ^3.4.27
+        version: 3.5.13(typescript@5.8.2)
 
   packages/locale: {}
 

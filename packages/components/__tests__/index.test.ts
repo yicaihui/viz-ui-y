@@ -1,13 +1,22 @@
 import type { Plugin } from 'vue'
 import { describe, it, expect } from 'vitest'
-import { VizButton, VizCollapse, VizCollapseItem, VizTooltip } from '../index'
+import {
+  VizButton,
+  VizCollapse,
+  VizCollapseItem,
+  VizTooltip,
+  VizAlert,
+  VizButtonGroup
+} from '../index'
 import { map, get } from 'lodash-es'
 
 const components = [
   VizButton,
+  VizButtonGroup,
   VizCollapse,
   VizCollapseItem,
-  VizTooltip
+  VizTooltip,
+  VizAlert
 ] as Plugin[]
 
 describe('components/index.ts', () => {

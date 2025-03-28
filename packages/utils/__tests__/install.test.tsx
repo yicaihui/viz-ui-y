@@ -32,12 +32,12 @@ describe('install', () => {
     const wapper = mount(() => <div id="app"></div>)
     const app = createApp(AppComp)
 
-    app.use(componentA).mount(wapper.element)
+    app.use(componentA).use(componentB).mount(wapper.element)
 
     expect(componentA.install).toBeDefined()
     expect(componentB.install).toBeDefined()
     expect(app._context.components['compA']).toBeTruthy()
-    expect(app._context.components['compB']).toBeFalsy()
+    expect(app._context.components['compB']).toBeTruthy()
   })
 
   it('makeInstaller should be worked', () => {

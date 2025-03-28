@@ -3,6 +3,8 @@ import type { AlertType } from './types'
 import { mount } from '@vue/test-utils'
 import Alert from './Alert.vue'
 import Icon from '../Icon/Icon.vue'
+import { VizAlert } from './index'
+import { withInstall } from '@viz-ui-y/utils'
 
 describe('Alert.vue', () => {
   const title = 'Test Alert'
@@ -127,5 +129,22 @@ describe('Alert.vue', () => {
     expect(wrapper.find('.viz-alert').attributes().style).toBe('display: none;')
     await wrapper.vm.open()
     expect(wrapper.find('.viz-alert').attributes().style).toBe('')
+  })
+})
+
+describe('Alert/index', () => {
+  it('should be exported with withInstall', () => {
+    expect(VizAlert.install).toBeDefined()
+  })
+  it('component should be exported', () => {
+    expect(VizAlert).toBe(Alert)
+  })
+  it('should enhance Alert component', () => {
+    const enhancedAlert = withInstall(Alert)
+    expect(enhancedAlert).toBe(VizAlert)
+  })
+  it('should apply specific enhance', () => {
+    const enhancedAlert = withInstall(Alert)
+    expect(enhancedAlert).toHaveProperty('install')
   })
 })

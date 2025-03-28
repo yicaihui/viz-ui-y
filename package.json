@@ -76,6 +76,7 @@
     "@viz-ui-y/theme": "workspace:*",
     "@viz-ui-y/utils": "workspace:*",
     "@viz-ui-y/vite-plugins": "workspace:*",
+    "@vitepress-preview/component": "workspace:*",
     "@vueuse/head": "^2.0.0",
     "async-validator": "^4.2.5",
     "lodash-es": "^4.17.21",

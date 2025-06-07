@@ -1,16 +1,16 @@
 <!-- eslint-disable vue/valid-v-slot -->
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { VizIcon } from '../Icon'
-import { VizTooltip, type TooltipInstance } from '../Tooltip'
-import { VizButton } from '../Button'
 import type { PopconfirmEmits, PopconfirmProps } from './types.ts'
 import { addUnit } from '@viz-ui-y/utils'
 
+import { VizIcon } from '../Icon'
+import { VizTooltip, type TooltipInstance } from '../Tooltip'
+import { VizButton } from '../Button'
+import { useLocale } from '@viz-ui-y/hooks'
+
 const props = withDefaults(defineProps<PopconfirmProps>(), {
   title: '',
-  confirmButtonText: 'Yes',
-  cancelButtonText: 'No',
   confirmButtonType: 'primary',
   icon: 'question-circle',
   iconColor: '#f90',
@@ -35,6 +35,8 @@ function cancel(e: MouseEvent) {
   hidePopper()
 }
 const emits = defineEmits<PopconfirmEmits>()
+//国际化
+const locale = useLocale()
 defineOptions({
   name: 'VizPopconfirm'
 })
@@ -60,7 +62,7 @@ defineOptions({
             :type="cancelButtonType"
             @click="cancel"
           >
-            {{ cancelButtonText }}
+            {{ cancelButtonText || locale.t('popconfirm.cancelButtonText') }}
           </viz-button>
           <viz-button
             size="small"
@@ -68,7 +70,7 @@ defineOptions({
             :type="confirmButtonType"
             @click="confirm"
           >
-            {{ confirmButtonText }}
+            {{ confirmButtonText || locale.t('popconfirm.confirmButtonText') }}
           </viz-button>
         </div>
       </div>

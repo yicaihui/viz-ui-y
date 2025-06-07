@@ -36,6 +36,7 @@ export default defineConfig({
       filename: 'dist/stats.es.html'
     }),
     dts({
+      //限制生成类型的文件
       tsconfigPath: '../../tsconfig.build.json',
       outDir: 'dist/types'
     }),

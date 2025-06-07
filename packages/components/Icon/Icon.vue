@@ -4,11 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { omit } from 'lodash-es'
 import { computed } from 'vue'
 
-defineOptions({
-  name: 'VizIcon',
-  inheritAttrs: false
-})
-
 const props = defineProps<IconProps>()
 // type和color是我们自己定义的
 const filterProps = computed(() => omit(props, ['type', 'color']))

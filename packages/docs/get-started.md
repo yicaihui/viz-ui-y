@@ -4,63 +4,62 @@ next:
   link: /components/button
   text: Button 按钮
 ---
+
 # 最新 Vue3 + TS 高仿 ElementPlus 打造自己的组件库
 
 ## 安装
 
-
 ```bash
-npm i @eric-ui --save
+npm i @viz-ui-y --save
 ```
 
 ## 开始使用
 
 **全局使用**
 
-
 ```js
 // 引入所有组件
-import EricUI from 'eric-ui'
+import VizUI from 'viz-ui-y'
 // 引入样式
-import 'eric-ui/dist/style.css'
+import 'viz-ui-y/dist/style.css'
 
 import App from './App.vue'
 // 全局使用
-createApp(App).use(ErElement).mount('#app')
+createApp(App).use(VizUI).mount('#app')
 ```
 
 ```vue
 <template>
-  <er-button>我是 Button</er-button>
+  <viz-button>我是 Button</viz-button>
 </template>
 ```
 
 **单个导入**
 
-Eric-UI 提供了基于 ES Module 的开箱即用的 Tree Shaking 功能。
-
+Viz-UI 提供了基于 ES Module 的开箱即用的 Tree Shaking 功能。
 
 ```vue
 <template>
-  <er-button>我是 Button</er-button>
+  <viz-button>我是 Button</viz-button>
 </template>
 <script>
-  import { ErButton } from ' er-element'
-  export default {
-    components: { ErButton },
-  }
+import { VizButton } from 'viz-ui-y'
+export default {
+  components: { VizButton }
+}
 </script>
 ```
 
 ## 亮点
 
 ::: details
+
 - Vite + Vitest + Vitepress 工具链
 - monorepo 分包管理
 - github actions 实现 CI/CD 自动化部署
 - 大模型辅助：使用大模型辅助完成需求分析，设计思路，快速实现组件，提升开发效率。
 - 当然，也会展示 发布“开箱即用” 的 npm 包
-:::
+  :::
 
 <!-- * 亮点1 🔥：“稀有”，目前上市面没有类似的高级课程，由浅入深的高仿 Element-Plus 完成组件库开发的全流程。
 * 亮点2 💧: “专业”，传授大厂前端项目架构设计思想/开发模式/代码规范/流程，不搞小作坊式代码。

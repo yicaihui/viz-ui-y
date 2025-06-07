@@ -1,0 +1,100 @@
+.viz-notification {
+  --viz-notification-width: 330px;
+  --viz-notification-padding: 14px 26px 14px 13px;
+  --viz-notification-radius: 8px;
+  --viz-notification-shadow: var(--viz-box-shadow-light);
+  --viz-notification-border-color: var(--viz-border-color-lighter);
+  --viz-notification-icon-size: 24px;
+  --viz-notification-close-font-size: var(--viz-message-close-size, 16px);
+  --viz-notification-content-font-size: var(--viz-font-size-base);
+  --viz-notification-content-color: var(--viz-text-color-regular);
+  --viz-notification-title-font-size: 16px;
+  --viz-notification-title-color: var(--viz-text-color-primary);
+  --viz-notification-close-color: var(--viz-text-color-secondary);
+  --viz-notification-close-hover-color: var(--viz-text-color-regular);
+}
+.viz-notification {
+  display: flex;
+  width: var(--viz-notification-width);
+  padding: var(--viz-notification-padding);
+  border-radius: var(--viz-notification-radius);
+  box-sizing: border-box;
+  border: 1px solid var(--viz-notification-border-color);
+  position: fixed;
+  background-color: var(--viz-bg-color-overlay);
+  box-shadow: var(--viz-notification-shadow);
+  transition:
+    opacity var(--viz-transition-duration),
+    transform var(--viz-transition-duration),
+    right var(--viz-transition-duration),
+    top 0.4s,
+    bottom var(--viz-transition-duration);
+  overflow-wrap: anywhere;
+  overflow: hidden;
+  z-index: 9999;
+
+  &.right {
+    right: 10px;
+  }
+
+  &.left {
+    left: 10px;
+  }
+
+  .viz-notification__text {
+    margin: 0 10px;
+  }
+  .viz-notification__icon {
+    height: var(--viz-notification-icon-size);
+    width: var(--viz-notification-icon-size);
+    font-size: var(--viz-notification-icon-size);
+    color: var(--viz-notification-icon-color);
+  }
+
+  .viz-notification__title {
+    font-weight: 700;
+    font-size: var(--viz-notification-title-font-size);
+    line-height: var(--viz-notification-icon-size);
+    color: var(--viz-notification-title-color);
+    margin: 0;
+  }
+  .viz-notification__content {
+    font-size: var(--viz-notification-content-font-size);
+    line-height: 24px;
+    margin: 6px 0 0;
+    color: var(--viz-notification-content-color);
+    text-align: justify;
+  }
+  .viz-notification__close {
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    cursor: pointer;
+    color: var(--viz-notification-close-color);
+    font-size: var(--viz-notification-close-font-size);
+  }
+}
+@each $val in info, success, warning, danger {
+  .viz-notification--$(val) {
+    --viz-notification-icon-color: var(--viz-color-$(val));
+    color: var(--viz-notification-icon-color);
+  }
+}
+.viz-notification--vizror {
+  --viz-notification-icon-color: var(--viz-color-danger);
+  color: var(--viz-notification-icon-color);
+}
+
+.viz-notification-fade-enter-from {
+  &.right {
+    right: 0;
+    transform: translate(100%);
+  }
+  &.left {
+    left: 0;
+    transform: translate(-100%);
+  }
+}
+.viz-notification-fade-leave-to {
+  opacity: 0;
+}

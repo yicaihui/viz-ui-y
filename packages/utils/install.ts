@@ -1,20 +1,11 @@
-import type { App, Plugin, Directive } from 'vue'
-import { noop, each } from 'lodash-es'
+import type { App, Plugin } from 'vue'
 
 type SFCWithInstall<T> = T & Plugin
 
 export interface ConfigProps {
   colors?: Record<'primary', string>
 }
-//全局引入
-export function makeInstaller(components: Plugin[]): Plugin {
-  const installer = (app: App) => {
-    each(components, c => {
-      app.use(c)
-    })
-  }
-  return installer as Plugin
-}
+
 //按需引入
 export const withInstall = <T>(component: T) => {
   ;(component as SFCWithInstall<T>).install = (app: App) => {
@@ -22,4 +13,10 @@ export const withInstall = <T>(component: T) => {
     app.component(name, component as SFCWithInstall<T>)
   }
   return component as SFCWithInstall<T>
+}
+export const withInstallFunction = <T>(fn: T, name: string) => {
+  ;(fn as SFCWithInstall<T>).install = (app: App) => {
+    app.config.globalProperties[name] = fn
+  }
+  return fn as SFCWithInstall<T>
 }

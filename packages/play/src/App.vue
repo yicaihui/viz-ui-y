@@ -1,18 +1,64 @@
 <script setup lang="ts">
-// import { VizButton, VizPopconfirm } from 'viz-ui-y'
+import { ref } from 'vue'
 
-// function confirm() {
-//   console.log('confirm')
-// }
-// function cancel() {
-//   console.log('cancel')
-// }
+const isLoading = ref(true)
+const activeNames = ref([])
 </script>
 
 <template>
-  <!-- <viz-popconfirm title="确定删除吗？" @confirm="confirm" @cancel="cancel">
-    <viz-button type="primary" size="small">test</viz-button>
-  </viz-popconfirm> -->
-
-  <viz-button type="primary" size="small">test</viz-button>
+  <div class="container" v-loading="isLoading">
+    <viz-collapse v-model="activeNames" accordion>
+      <viz-collapse-item title="Consistency" name="1">
+        <div>
+          Consistent with real life: in line with the process and logic of real
+          life, and comply with languages and habits that the users are used to;
+        </div>
+        <div>
+          Consistent within interface: all elements should be consistent, such
+          as: design style, icons and texts, position of elements, etc.
+        </div>
+      </viz-collapse-item>
+      <viz-collapse-item title="Feedback" name="2">
+        <div>
+          Operation feedback: enable the users to clearly perceive their
+          operations by style updates and interactive effects;
+        </div>
+        <div>
+          Visual feedback: reflect current state by updating or rearranging
+          elements of the page.
+        </div>
+      </viz-collapse-item>
+      <viz-collapse-item title="Efficiency" name="3">
+        <div>
+          Simplify the process: keep operating process simple and intuitive;
+        </div>
+        <div>
+          Definite and clear: enunciate your intentions clearly so that the
+          users can quickly understand and make decisions;
+        </div>
+        <div>
+          Easy to identify: the interface should be straightforward, which helps
+          the users to identify and frees them from memorizing and recalling.
+        </div>
+      </viz-collapse-item>
+      <viz-collapse-item title="Controllability" name="4">
+        <div>
+          Decision making: giving advices about operations is acceptable, but do
+          not make decisions for the users;
+        </div>
+        <div>
+          Controlled consequences: users should be granted the freedom to
+          operate, including canceling, aborting or terminating current
+          operation.
+        </div>
+      </viz-collapse-item>
+    </viz-collapse>
+  </div>
+  <viz-switch v-model="isLoading"></viz-switch>
 </template>
+
+<style scoped>
+.container {
+  padding: 10px;
+}
+</style>

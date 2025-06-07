@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-expressions */
 import { each, isElement } from 'lodash-es'
 import { onMounted, onUnmounted, watch } from 'vue'
 import type { ComputedRef, Ref, WatchStopHandle } from 'vue'

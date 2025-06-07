@@ -3,6 +3,7 @@ import { provide, reactive, toRef } from 'vue'
 import type { ButtonGroupProps } from './types'
 import { BUTTON_GROUP_CTX_KEY } from './constants'
 
+//1. 依赖注入 2. 特殊样式
 defineOptions({
   name: 'VizButtonGroup'
 })

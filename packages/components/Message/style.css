@@ -1,0 +1,81 @@
+.viz-message {
+  --viz-message-bg-color: var(--viz-color-info-light-9);
+  --viz-message-border-color: var(--viz-border-color-lighter);
+  --viz-message-padding: 15px 19px;
+  --viz-message-close-size: 16px;
+  --viz-message-close-icon-color: var(--viz-text-color-placeholder);
+  --viz-message-close-hover-color: var(--viz-text-color-secondary);
+  --viz-message-icon-size: 16px;
+  --viz-message-icon-margin: 8px;
+}
+
+.viz-message {
+  width: fit-content;
+  max-width: calc(100% - 32px);
+  box-sizing: border-box;
+  border-radius: var(--viz-border-radius-base);
+  border-width: var(--viz-border-width);
+  border-style: var(--viz-border-style);
+  border-color: var(--viz-message-border-color);
+  position: fixed;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  background-color: var(--viz-message-bg-color);
+  padding: var(--viz-message-padding);
+  display: flex;
+  align-items: center;
+  transition:
+    top var(--viz-transition-duration),
+    opacity var(--viz-transition-duration),
+    transform var(--viz-transition-duration);
+  .viz-message__icon {
+    color: var(--viz-message-text-color);
+    font-size: var(--viz-message-icon-size);
+    width: var(--viz-message-icon-size);
+    margin-right: var(--viz-message-icon-margin);
+  }
+  .viz-message__content {
+    color: var(--viz-message-text-color);
+    overflow-wrap: break-word;
+  }
+  &.is-close .viz-message__content {
+    padding-right: 10px;
+  }
+  &.text-center {
+    justify-content: center;
+  }
+  .viz-message__close {
+    display: flex;
+    align-items: center;
+  }
+  .viz-message__close .viz-icon {
+    cursor: pointer;
+  }
+}
+
+@each $val in info, success, warning, danger {
+  .viz-message--$(val) {
+    --viz-message-bg-color: var(--viz-color-$(val)-light-9);
+    --viz-message-border-color: var(--viz-color-$(val)-light-8);
+    --viz-message-text-color: var(--viz-color-$(val));
+    .viz-message__close {
+      --viz-icon-color: var(--viz-color-$(val));
+    }
+  }
+}
+
+.viz-message--vizror {
+  --viz-message-bg-color: var(--viz-color-danger-light-9);
+  --viz-message-border-color: var(--viz-color-danger-light-8);
+  --viz-message-text-color: var(--viz-color-danger);
+  .viz-message__close {
+    --viz-icon-color: var(--viz-color-danger);
+  }
+}
+
+.viz-message.fade-up-enter-from,
+.viz-message.fade-up-leave-to {
+  opacity: 0;
+  transform: translate(-50%, -100%);
+}

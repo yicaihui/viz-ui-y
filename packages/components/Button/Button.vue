@@ -23,6 +23,7 @@ const _ref = ref<HTMLButtonElement>()
 const handleBtnClick = (e: MouseEvent) => {
   emits('click', e)
 }
+//trailing (后沿) 选项（默认为 true）控制在节流周期结束后，是否执行一次额外的函数调用。
 const handlBtneCLickThrottle = throttle(
   handleBtnClick,
   props.throttleDuration,
@@ -36,6 +37,7 @@ const iconStyle = computed(() => {
   }
 })
 // 依赖注入
+//第二个参数是默认值
 const buttonGroupCtx = inject(BUTTON_GROUP_CTX_KEY, void 0)
 const size = computed(() => buttonGroupCtx?.size ?? props.size ?? '')
 const type = computed(() => buttonGroupCtx?.type ?? props.type ?? '')

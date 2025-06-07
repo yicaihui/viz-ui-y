@@ -24,3 +24,4 @@ export const typeIconMap = new Map([
 export * from './install'
 export * from './error'
 export * from './style.ts'
+export * from './test.ts'
